@@ -16,20 +16,19 @@ public class DepartmentServiceImpl implements DepartmentService {
     }
 
     @Override
-    public Optional<Employee>  getEmployeeInDepartmentMinSalary(int department) {
-        return Optional.ofNullable(employeeService.findAll().stream()
+    public Employee getEmployeeInDepartmentMinSalary(int department) {
+        return employeeService.findAll().stream()
                 .filter(e -> e.getDepartment() == department)
-                .min(Comparator.comparing(e -> e.getSalary()))
-                .orElseThrow(() -> new RuntimeException("Employee not found")));
+                .min(Comparator.comparing(Employee::getSalary))
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
     }
 
     @Override
-    public Optional<Employee> getEmployeeInDepartmentMaxSalary(int department) {
-        return Optional.ofNullable(employeeService.findAll().stream()
+    public Employee getEmployeeInDepartmentMaxSalary(int department) {
+        return employeeService.findAll().stream()
                 .filter(e -> e.getDepartment() == department)
-                .max(Comparator.comparing(e -> e.getSalary()))
-                .orElseThrow(() -> new RuntimeException("Employee not found")));
-
+                .max(Comparator.comparing(Employee::getSalary))
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
     }
 
     @Override
@@ -42,7 +41,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     @Override
     public List<Employee> printEmployeesDepartment() {
         return employeeService.findAll().stream()
-                .sorted(Comparator.comparing(e->e.getDepartment()))
+                .sorted(Comparator.comparing(Employee::getDepartment))
                 .collect(Collectors.toList());
     }
 }

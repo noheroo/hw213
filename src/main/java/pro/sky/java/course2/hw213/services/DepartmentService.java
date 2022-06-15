@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface DepartmentService {
 
-    Optional<Employee> getEmployeeInDepartmentMinSalary(int department);
+    Employee getEmployeeInDepartmentMinSalary(int department);
 
-    Optional<Employee> getEmployeeInDepartmentMaxSalary(int department);
+    Employee getEmployeeInDepartmentMaxSalary(int department);
 
     List<Employee> printEmployeesInDepartment(int department);
 

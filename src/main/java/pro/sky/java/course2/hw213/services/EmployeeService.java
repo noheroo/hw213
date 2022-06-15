@@ -6,9 +6,9 @@ import java.util.Collection;
 import java.util.Map;
 
 public interface EmployeeService {
-    void addEmployee(String lastName, String firstName, int salary, int department);
+    Employee addEmployee(String lastName, String firstName, int salary, int department);
 
-    void removeEmployee(String lastName, String firstName);
+    Employee removeEmployee(String lastName, String firstName);
 
     Employee findEmployee(String lastName, String firstName);
 
