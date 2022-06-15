@@ -22,12 +22,12 @@ public class DepartmentsController {
     }
 
     @GetMapping("/min-salary")
-    public Optional<Employee>  getEmployeeInDepartmentMinSalary(@RequestParam int department) {
+    public Employee  getEmployeeInDepartmentMinSalary(@RequestParam int department) {
         return departmentsService.getEmployeeInDepartmentMinSalary(department);
     }
 
     @GetMapping("/max-salary")
-    public Optional<Employee> getEmployeeInDepartmentMaxSalary(@RequestParam int department) {
+    public Employee getEmployeeInDepartmentMaxSalary(@RequestParam int department) {
         return departmentsService.getEmployeeInDepartmentMaxSalary(department);
     }
 
